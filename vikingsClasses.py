@@ -27,7 +27,7 @@ class Viking(Soldier):
         return "Odin Owns You All!" #returns the Battle Cry of the viking
 
     def receiveDamage(self, damage): 
-        self.health -= damage #reduces the viking's health by the damage amount received
+        super().receiveDamage(damage) #reduces the viking's health by the damage amount received
         if self.health <= 0:  #if the vikings's health drops to 0 or below, it returns "{self.name} has died in act of combat." where {self.name} is the name of the affected viking
             return f"{self.name} has died in act of combat"
         else:
@@ -39,7 +39,7 @@ class Saxon(Soldier):
         super().__init__(health, strength)  #inherits attributes health and strength from super class Soldier
 
     def receiveDamage(self, damage):
-        self.health -= damage #reduces the saxon's health by the damage amount received
+        super().receiveDamage(damage)  #reduces the saxon's health by the damage amount received
         if self.health > 0: 
             return f"A Saxon has received {damage} points of damage"  #if the saxon is still alive, it returns a message indicating the damage receivedd
         else:
