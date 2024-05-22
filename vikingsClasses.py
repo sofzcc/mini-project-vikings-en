@@ -19,9 +19,9 @@ class Soldier:
 
 class Viking(Soldier):
     def __init__(self, name, health, strength):
-        self.health = health
-        self.strength = strength #inherits attributes health and strength from Soldier class 
         self.name = name #initializes the name attribute with the given value
+        super().__init__(health, strength) #inherits attributes health and strength from Soldier class 
+        
     
     def battleCry(self):
         return "Odin Owns You All!" #returns the Battle Cry of the viking
@@ -36,8 +36,7 @@ class Viking(Soldier):
 
 class Saxon(Soldier):
     def __init__(self, health, strength):
-        self.health = health
-        self.strength = strength  #inherits attributes health and strength from super class Soldier
+        super().__init__(health, strength)  #inherits attributes health and strength from super class Soldier
 
     def receiveDamage(self, damage):
         self.health -= damage #reduces the saxon's health by the damage amount received
